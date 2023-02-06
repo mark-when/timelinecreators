@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --vp-c-brand: #646cff;
+  --vp-c-brand-light: #747bff;
+  --vp-c-brand-lighter: #747bff;
+  --vp-c-brand-dark: #9196ff;
+  --vp-c-brand-darker: #242fff;
+}
