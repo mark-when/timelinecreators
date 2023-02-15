@@ -37,8 +37,8 @@
   position: relative;
 }
 @media (min-width: 960px) {
-  .VPNav[data-v-14f22a90] {
-    position: absolute;
+  .VPNav {
+    position: absolute !important;
 }
 }
 *, ::before, ::after {
