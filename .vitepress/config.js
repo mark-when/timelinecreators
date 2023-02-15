@@ -11,5 +11,8 @@ export default {
   appearance: false,
   vite: {
     plugins: [vuetify({ autoImport: true, styles: true })],
+    ssr: {
+      noExternal: ["vuetify"],
+    },
   },
 };

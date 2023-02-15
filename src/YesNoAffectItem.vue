@@ -13,7 +13,7 @@ const props = defineProps<{
       class="rounded px-2 font-bold"
       :class="{
         'bg-teal-400/50': item[1] === 'good',
-        'bg-orange-500/50': item[1] === 'bad',
+        'bg-red-500/50': item[1] === 'bad',
       }"
     >
       {{ item[0] }}
