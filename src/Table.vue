@@ -163,7 +163,8 @@ const items: Item[] = [
 </script>
 
 <template>
-  <v-app>
+  <v-app
+  style="box-shadow: 0px -6px 20px 0px #2c3ae02b;">
     <v-data-table
       :headers="headers"
       :items="items"

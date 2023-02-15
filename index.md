@@ -4,6 +4,14 @@ hero:
   name: Timeline Creators
   tagline: Community-curated list of timeline making tools and utilities.
   image: "/favicon.png"
+
+head:
+  - - meta
+    - name: description
+      content: Community-curated list of timeline making tools and utilities.
+  - - meta
+    - name: keywords
+      content: timeline maker gannt chart tools utility tool utilities
 ---
 
 <script setup>
