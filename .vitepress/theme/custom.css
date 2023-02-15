@@ -8,4 +8,39 @@
   --vp-c-brand-lighter: #747bff;
   --vp-c-brand-dark: #9196ff;
   --vp-c-brand-darker: #242fff;
+
+  --vp-c-text-2: black;
+}
+
+.dark {
+  --vp-c-text-2: white;
+}
+
+.VPHero {
+  background-image: radial-gradient(#bccaff 2px,transparent 2%);
+  background-position: 0 0,100px 100px;
+  background-size: 100px 100px;
+}
+
+.VPHome {
+  background-image: radial-gradient(#ecf0fd 2px,transparent 2%);
+  background-position: 0 0,20px 20px;
+  background-size: 20px 20px;
+  padding-bottom: 0 !important;
+}
+
+.VPImage {
+  max-width: 4rem;
+}
+
+.VPNav {
+  position: relative;
+}
+@media (min-width: 960px) {
+  .VPNav[data-v-14f22a90] {
+    position: absolute;
+}
+}
+*, ::before, ::after {
+  background-repeat: repeat
 }
