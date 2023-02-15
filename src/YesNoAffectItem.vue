@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import { AffectVal } from "./Item";
 
-const props = defineProps<{
+defineProps<{
   item: AffectVal<string>;
 }>();
 </script>

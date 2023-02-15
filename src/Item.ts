@@ -12,6 +12,7 @@ export type RawItem = {
   consumerOriented: string
   freeOptions: string
   paidOptions: string
+  primaryFocus: string
 };
 
 export type Item = {

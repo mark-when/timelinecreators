@@ -71,6 +71,7 @@ const headers = [
   },
   { title: "Free options", align: "end", sortable: true, key: "freeOptions" },
   { title: "Paid options", align: "end", sortable: true, key: "paidOptions" },
+  { title: "Primary focus", align: "end", sortable: true, key: "primaryFocus" },
 ];
 
 const good = <T>(val: T): AffectVal<T> => [val, "good"];
@@ -92,6 +93,7 @@ const items: Item[] = [
     consumerOriented: neutral("Yes"),
     freeOptions: good("Yes"),
     paidOptions: n("Yes"),
+    primaryFocus: g("Timeline"),
   },
   {
     name: neutral("Powerpoint"),
@@ -103,6 +105,7 @@ const items: Item[] = [
     consumerOriented: neutral("Yes"),
     freeOptions: good("Yes"),
     paidOptions: n("Yes"),
+    primaryFocus: n("Slides"),
   },
   {
     name: neutral("Keynote"),
@@ -114,6 +117,7 @@ const items: Item[] = [
     consumerOriented: neutral("Yes"),
     freeOptions: good("Yes"),
     paidOptions: n("No"),
+    primaryFocus: n("Slides"),
   },
   {
     name: neutral("Sheets"),
@@ -125,6 +129,7 @@ const items: Item[] = [
     consumerOriented: neutral("Yes"),
     freeOptions: good("Yes"),
     paidOptions: n("No"),
+    primaryFocus: n("Spreadsheet"),
   },
   {
     name: neutral("Prezi"),
@@ -136,6 +141,7 @@ const items: Item[] = [
     developerOriented: neutral("No"),
     freeOptions: n("No"),
     paidOptions: n("Yes"),
+    primaryFocus: n("General design"),
   },
   {
     name: neutral("Mermaid.js"),
@@ -147,6 +153,7 @@ const items: Item[] = [
     consumerOriented: neutral("Yes"),
     freeOptions: good("Yes"),
     paidOptions: n("No"),
+    primaryFocus: n("General design"),
   },
   {
     name: n("Canva"),
@@ -158,13 +165,15 @@ const items: Item[] = [
     developerOriented: n("No"),
     freeOptions: g("Yes"),
     paidOptions: n("Yes"),
+    primaryFocus: n("General design"),
   },
 ];
+
+const url = (u: string) =>  new URL(u).host
 </script>
 
 <template>
-  <v-app
-  style="box-shadow: 0px -6px 20px 0px #2c3ae02b;">
+  <v-app style="box-shadow: 0px -6px 20px 0px #2c3ae02b">
     <v-data-table
       :headers="headers"
       :items="items"
@@ -172,10 +181,16 @@ const items: Item[] = [
       multi-sort
     >
       <template v-slot:item.name="{ item }">
-        <a :href="item.raw.url[0]" v-if="item.raw.url" class="underline">{{
-          item.raw.name[0]
-        }}</a>
-        <div class="" v-else>{{ item.raw.name[0] }}</div>
+        <div class="flex flex-row items-center">
+          <img
+            :src="`https://icons.duckduckgo.com/ip3/${url(item.raw.url[0])}.ico`"
+            class="w-4 h-4 mr-2"
+          />
+          <a :href="item.raw.url[0]" v-if="item.raw.url" class="underline">{{
+            item.raw.name[0]
+          }}</a>
+          <div class="" v-else>{{ item.raw.name[0] }}</div>
+        </div>
       </template>
       <template v-slot:item.url="{ item }">
         <a :href="item.raw.url" v-if="item.raw.url" class="underline">{{
@@ -199,7 +214,9 @@ const items: Item[] = [
       ><template v-slot:item.paidOptions="{ item }">
         <yes-no-affect-item :item="item.raw.paidOptions" /> </template
       ><template v-slot:item.openSource="{ item }">
-        <yes-no-affect-item :item="item.raw.openSource" />
+        <yes-no-affect-item :item="item.raw.openSource" /> </template
+      ><template v-slot:item.primaryFocus="{ item }">
+        <yes-no-affect-item :item="item.raw.primaryFocus" />
       </template>
     </v-data-table>
   </v-app>
